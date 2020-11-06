@@ -7,11 +7,11 @@ const companySchema = new mongoose.Schema({
   criteria: String,
   total_selected: Number,
   visit_date: Date,
-  ctc: Number
+  ctc: Number,
 });
 
 const Company = mongoose.model("Companies", companySchema);
 
 module.exports = {
-  Player: Player,
+  Company: Company,
 };
