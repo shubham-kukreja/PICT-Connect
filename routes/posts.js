@@ -1,27 +1,34 @@
 const express = require("express");
+const { Post } = require("../models/post");
 const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    res.status(200).send("GET ALL POSTS");
+    const posts = await Post.find();
+    res.status(200).send(posts);
   } catch (error) {
     res.send(error.message);
   }
 });
 
-router.get("/gre", async (req, res) => {
+router.get("/postdetails/:id", async (req, res) => {
+  const id = req.params.id;
   try {
-    res.status(200).send("GRE");
+    const post = await Post.findById(id);
+    res.status(200).send(post);
   } catch (error) {
     res.send(error.message);
   }
 });
 
-router.get("/placement", async (req, res) => {
+router.post("/new", async (req, res) => {
   try {
-    res.status(200).send("PLACEMENT");
+    const post = new Post(req.body);
+    const temp = await post.save();
+    res.status(200).send(temp);
   } catch (error) {
-    res.send(error.message);
+    console.log("Failed");
+    res.status(res.status).send(error.message);
   }
 });
 
