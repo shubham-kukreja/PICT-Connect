@@ -11,7 +11,34 @@ router.get("/", async (req, res) => {
   }
 });
 
-router.get("/postdetails/:id", async (req, res) => {
+router.get("/placement", async (req, res) => {
+  try {
+    const posts = await Post.find({type : 1});
+    res.status(200).send(posts);
+  } catch (error) {
+    res.send(error.message);
+  }
+});
+
+router.get("/faculty", async (req, res) => {
+  try {
+    const posts = await Post.find({type : 0});
+    res.status(200).send(posts);
+  } catch (error) {
+    res.send(error.message);
+  }
+});
+
+router.get("/gre", async (req, res) => {
+  try {
+    const posts = await Post.find({type : 2});
+    res.status(200).send(posts);
+  } catch (error) {
+    res.send(error.message);
+  }
+});
+
+router.get("/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const post = await Post.findById(id);
