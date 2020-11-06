@@ -3,8 +3,7 @@ const router = express.Router();
 
 router.get("/", async (req, res) => {
   try {
-    var res = "SELECT * FROM POSTS"
-    res.status(200).send(res);
+    res.status(200).send("GET ALL POSTS");
   } catch (error) {
     res.send(error.message);
   }
