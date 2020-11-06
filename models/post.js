@@ -12,5 +12,5 @@ const postSchema = new mongoose.Schema({
 const Post = mongoose.model("Posts", postSchema);
 
 module.exports = {
-  Player: Player,
+  Post: Post,
 };
