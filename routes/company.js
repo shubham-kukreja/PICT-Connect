@@ -26,4 +26,42 @@ router.delete("/delete/:id", async (req, res) => {
   }
 });
 
+router.get("/", async (req, res) => {
+ try {
+     const companies = await Company.find();
+     res.status(200).send(companies);   
+ } catch (error) {
+  console.log("Failed");
+  res.send(error.message);
+ }
+});
+
+
+router.get("/company/:id", async (req, res) => {
+  const id = req.params.id;
+  try {
+      const company = await Company.findById(id);
+      res.status(200).send(company);   
+  } catch (error) {
+   console.log("Failed");
+   res.send(error.message);
+  }
+ });
+
+ /*
+ router.get("/company/:id/placements", async (req, res) => {
+  const id = req.params.id;
+  try {
+      const company = await Company.findById(id);
+      res.status(200).send(company); 
+      
+      
+  } catch (error) {
+   console.log("Failed");
+   res.send(error.message);
+  }
+ });
+*/
+
+
 module.exports = router;
