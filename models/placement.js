@@ -3,7 +3,7 @@ const mongoose = require("mongoose");
 const placementSchema = new mongoose.Schema({
   role: String,
   offCampus: Number,
-  company: Number,
+  company: mongoose.Schema.Types.ObjectId,
 });
 const Placement = mongoose.model("Placements", placementSchema);
 
