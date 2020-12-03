@@ -3,7 +3,7 @@ const { Placement } = require("../models/placement");
 const router = express.Router();
 const { isAdmin } = require("../middlewares/auth");
 
-router.post("/new", isAdmin, async (req, res) => {
+router.post("/new", async (req, res) => {
   try {
     const placement = new Placement(req.body);
     const temp = await placement.save();
@@ -15,7 +15,7 @@ router.post("/new", isAdmin, async (req, res) => {
   }
 });
 
-router.put("/edit/:id", isAdmin, async (req, res) => {
+router.put("/edit/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const placement = Placement.findById(id);
@@ -28,7 +28,7 @@ router.put("/edit/:id", isAdmin, async (req, res) => {
   }
 });
 
-router.delete("/delete/:id", isAdmin, async (req, res) => {
+router.delete("/delete/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const placement = Placement.findById(id);

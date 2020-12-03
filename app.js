@@ -6,6 +6,7 @@ const postsRoute = require("./routes/posts");
 const placementRoute = require("./routes/placements");
 const companyRoute = require("./routes/company");
 const authRoutes = require("./routes/auth");
+const profileRoute = require("./routes/profile");
 
 require("./config/database");
 
@@ -24,3 +25,4 @@ app.use("/api/auth", authRoutes);
 app.use("/api/posts", postsRoute);
 app.use("/api/placements", placementRoute);
 app.use("/api/company", companyRoute);
+app.use("/api/profile", profileRoute);
