@@ -32,7 +32,7 @@ router.post("/new", async (req, res) => {
   }
 });
 
-router.put("/like/:id", async (req, res) => {
+router.get("/like/:id", async (req, res) => {
   const id = req.params.id;
   try {
     const post = Post.findById(id);
