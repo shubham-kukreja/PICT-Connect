@@ -1,15 +1,16 @@
 const express = require("express");
 const { Placement } = require("../models/placement");
 const router = express.Router();
+const { isAdmin } = require("../middlewares/auth");
 
 router.post("/new", async (req, res) => {
   try {
-    console.log(req.body);
     const placement = new Placement(req.body);
     const temp = await placement.save();
     res.status(200).send(temp);
   } catch (error) {
     console.log("Failed");
+
     res.send(error.message);
   }
 });
