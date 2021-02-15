@@ -18,7 +18,7 @@ app.use(bodyParser.urlencoded({ extended: true }));
 
 const port = process.env.PORT;
 app.listen(port, () => {
-  console.log(`Example app listening at http://localhost:${port}`);
+  console.log(`Example of app listening at http://localhost:${port}`);
 });
 
 app.use("/api/auth", authRoutes);
